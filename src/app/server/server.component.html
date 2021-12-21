@@ -1,0 +1,38 @@
+<p class="title">
+  server works! server id is: {{ serverId }}. server status is:
+  {{ getServerStatus() }}
+</p>
+
+<button
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+  class="rounded border-2 border-red-300 m-5 shadow-sm p-2"
+>
+  Add server {{ allowNewServer }}
+</button>
+
+<input
+  type="text"
+  (input)="onUpdateServer($event)"
+  [(ngModel)]="serverName"
+  class="border-2 border-black"
+/>
+
+<p
+  [ngClass]="randomBoolean === true ? 'bg-orange-400' : 'bg-yellow-400'"
+  class="text-xl"
+>
+  ternary example
+</p>
+
+<p *ngIf="randomBoolean === true; else elseStatement">if statement</p>
+<ng-template #elseStatement>else statement</ng-template>
+
+<div *ngFor="let number of randomArray; let i = index">value is: {{ number }}. index is: {{ i }}</div>
+
+<button
+  (click)="onAddMoreStuff()"
+  class="rounded border-2 border-red-300 m-5 shadow-sm p-2"
+>
+  add more number
+</button>
