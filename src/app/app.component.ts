@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lmao';
-  name = 'xd';
+  serverNames = ['server1', 'server2', 'server3', 'server4'];
+
+  onAddServer(serverName: string) {
+    this.serverNames.push(serverName);
+  }
 }

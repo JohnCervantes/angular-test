@@ -3,3 +3,10 @@
   <app-recipes></app-recipes>
   <app-shopping-list></app-shopping-list>
 </div>
+
+<div>
+  <app-server
+    (addServer)="onAddServer($event)"
+    [serverNames]="serverNames"
+  ></app-server>
+</div>

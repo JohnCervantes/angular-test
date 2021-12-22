@@ -14,7 +14,6 @@
 <input
   type="text"
   (input)="onUpdateServer($event)"
-  [(ngModel)]="serverName"
   class="border-2 border-black"
 />
 
@@ -28,7 +27,9 @@
 <p *ngIf="randomBoolean === true; else elseStatement">if statement</p>
 <ng-template #elseStatement>else statement</ng-template>
 
-<div *ngFor="let number of randomArray; let i = index">value is: {{ number }}. index is: {{ i }}</div>
+<div *ngFor="let number of randomArray; let i = index">
+  value is: {{ number }}. index is: {{ i }}
+</div>
 
 <button
   (click)="onAddMoreStuff()"
@@ -36,3 +37,50 @@
 >
   add more number
 </button>
+
+<p>
+  Passing data from parent component to child component using Input decorator
+  example
+</p>
+<p>
+  Passing data from child component to parent component using Output decorator
+  and eventemitter example
+</p>
+<p>Server names</p>
+<button
+  type="button"
+  ngClass="border-2 rounded border-cyan-700 text-5xl"
+  (click)="onAddServer(newServerName)"
+>
+  add a server
+</button>
+
+<!-- local refference approach. get the data from an input by using hastag # -->
+<input
+  type="text"
+  (input)="onUpdateServerName($event)"
+  class="border-2 border-black"
+  placeholder="serverName"
+  #newServerName
+/>
+
+<!-- alternative way to get the value from an input
+<input
+  type="text"
+  (input)="onUpdateServerName($event)"
+  class="border-2 border-black"
+  placeholder="serverName"
+/>
+-->
+
+<div *ngFor="let serverName of serverNames">
+  {{ serverName }}
+</div>
+
+<!-- view child approach. get the data from an input by using hastag #  -->
+<input
+  type="text"
+  class="border-2 border-black"
+  placeholder="viewChild"
+  #viewChild
+/>
